@@ -7,8 +7,8 @@ app.use(cors())
 
 app.use(express.json())
 
-var useremail = "abc@gmail.com"
-var pass = "abc123"
+var useremail = "welcome@gmail.com"
+var pass = "welcome007"
 
 
 app.get("/",function(req,res){
@@ -16,8 +16,8 @@ app.get("/",function(req,res){
 })
 
 app.post("/login",function(req,res){
-    console.log(req.query.email)
-    if(useremail == req.query.email && pass == req.query.password){
+    console.log(req.body.email)
+    if(useremail == req.body.email && pass == req.body.password){
         res.send(true)
     }
     else{
