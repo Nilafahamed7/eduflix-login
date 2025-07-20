@@ -1,6 +1,8 @@
 const express = require("express")
 const app = express()
 const cors = require("cors")
+const helmet = require("helmet")
+app.use(helmet())
 app.use(cors())
 
 app.use(express.json())
@@ -18,6 +20,8 @@ app.post("/login",function(req,res){
     }
 })
 
-app.listen(3000,function(){
-    console.log("server started on port 3000...")
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT,function(){
+    console.log(`server started on port ${PORT}...`)
 }) 
