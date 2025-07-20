@@ -11,9 +11,13 @@ var useremail = "abc@gmail.com"
 var pass = "abc123"
 
 
+app.get("/",function(req,res){
+    res.send("✅ Server is running!")
+})
+
 app.post("/login",function(req,res){
-    console.log(req.body.email)
-    if(useremail == req.body.email && pass == req.body.password){
+    console.log(req.query.email)
+    if(useremail == req.query.email && pass == req.query.password){
         res.send(true)
     }
     else{
