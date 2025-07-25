@@ -25,10 +25,12 @@ app.get("/", function (req, res) {
 app.post("/login", function (req, res) {
   console.log("received email",req.body.useremail)
   console.log("received password",req.body.password)
+  console.log(req)
 
-  userdetails.findOne({ useremail: req.body.useremail })
+  userdetails.find({ useremail: req.body.useremail })
   .then((user) => {
     console.log("user found:",user)
+
     if(!user){
         console.log("no user found with that email")
         return res.send(false)
